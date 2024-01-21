@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunnfjord Lys</title>
+    <link rel="icon" type="image/x-icon" href="Bilder/Logo.png" style="width: 10%; mix-blend-mode: multiply;">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/4ad79ef746.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="./index.html"><img src="Bilder/Logo-Kvit.png" class="logo" alt="LOGO"></a>
+        </div>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check">
+                <i class="fa-solid fa-bars" id="burg"></i>
+                <i class="fa-solid fa-xmark" id="cancel"></i>
+            </label>
+            <ul id="MenuItems">
+                <li><a href="./index.html"><i class="fa-solid fa-house"></i>Hjem</a></li>
+                <li><a href="./produkt.html"><i class="fa-solid fa-cart-shopping"></i>Produkt</a></li>
+                <li><a href="./omoss.html"><i class="fa-solid fa-circle-info"></i>Om oss</a></li>
+                <li><a href="./kontaktinfo.html"><i class="fa-solid fa-address-book"></i>Kontaktinfo</a></li>
+            </ul>
+        </nav>
+    </div><br>
+            <section class="contact">
+                <div class="content-contact">
+                    <h2>Kontakt oss!</h2>
+                    <p>Ta kontakt dersom du har spørsmål eller har lyst til
+                        å kjøpe noko av oss. Send gjerne ein e-post eller bruk <br> 
+                        skjemaet under. Dersom du brukar skjemaet og 
+                        ikkje får svar innanfor ei rimeleg tid ta kontakt med  <br> 
+                        oss direkte (då kan det vere noko gale med skjemaet).
+                        <br>Vi håpar på å høyre frå deg!
+                    </p>
+                </div>
+                <div class="container-contact">
+                    <div class="contactInfo">
+                        <div class="box">
+                            <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="text">
+                                <h3>Adresse</h3>
+                                <p>Førde vidaregåande skule <br>
+                                    Naustdalsvegen 12 <br>
+                                    6800 FØRDE</p>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="icon"><i class="fa-regular fa-envelope"></i></div>
+                            <div class="text">
+                                <h3>E-Post</h3>
+                                <p>sunnfjordlys@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contactForm">
+                      <form method="post" onsubmit="this.submit(); this.reset(); return false;">
+                        <h2>Send melding</h2>
+                        <div class="inputBox">
+                            <input type="text" id="name" required="required">
+                            <span>Fult namn</span>
+                        </div>
+                        <div class="inputBox">
+                            <input type="text" id="email" required="required">
+                            <span>Telefonnummer eller e-post</span>
+                        </div>
+                        <div class="inputBox">
+                            <textarea name="" id="message" required="required"></textarea>
+                            <span>Skriv inn melding...</span>
+                        </div>
+                        <div class="inputBox">
+                            <input type="submit" id="btn" value="Send">
+                            <!--Foreløpig ikkje mulig å bruke!-->
+                        </div>
+                      </form>  
+                    </div>
+
+                </div>
+            </section>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+                <script>
+                    var btn = document.getElementById('btn')
+                    btn.addEventListener('click', function(e){
+                        e.preventDefault()
+                        var name = document.getElementById('name').value;
+                        var email = document.getElementById('email').value;
+                        var message = document.getElementById('message').value;
+                        var body = 'Namn: '+name + '<br/> TLF eller e-post: ' + 
+                        email + '<br/> Melding: '+ message;                
+
+                                        Email.send({
+                    SecureToken : "45db1927-0f84-46ea-a1e1-090f60500b0a",
+                    To : 'sunnfjordlys@gmail.com',
+                    From : "sunnfjordlys@gmail.com",
+                    Subject : "Ny Melding!",
+                    Body : body
+                }).then(
+                message => alert(message)
+                );
+                    })
+                </script>
+   
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Rettigheiter:</h3>
+                    <p><i class="fa-brands fa-creative-commons"></i>Alle rettigheitane til denne 
+                        nettsida er forbeholdt Sunnfjord Lys UB</p>
+                </div>
+                <div class="footer-col-2">
+                    <img src="Bilder/Logo-Kvit.png" alt="Logo">
+                    <p>Sunnfjord Lys Ungdomsbedrift</p>
+                </div>
+                
+                <div class="footer-col-4">
+                    <h3>Her finn du oss:</h3>
+                    <ul>
+                        <li><a href="https://www.facebook.com/profile.php?id=61554375847534" target="_blank"><i class="fa-brands fa-square-facebook"></i>- Facebook</a></li>
+                        <li><a href="https://www.instagram.com/sunnfjordlysub/" target="_blank"><i class="fa-brands fa-instagram"></i>- @sunnfjordlysub</a></li>
+                        <li><a href="https://www.google.com/search?q=sunnfjord+lys&oq=sunnfjord+lys&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGD0yBggCEEUYPNIBCDIzMjhqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8" target="_blank">
+                            <i class="fa-brands fa-google"></i>- Sunnfjord Lys</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
